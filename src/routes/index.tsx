@@ -195,7 +195,7 @@ function Index() {
             <img
               src={logoAsset.url}
               alt="Cloud Alchemy Academy"
-              className="h-16 w-16 object-contain drop-shadow-[0_4px_12px_oklch(0.18_0.08_240/0.5)] md:h-20 md:w-20"
+              className="h-[5.25rem] w-[5.25rem] object-contain drop-shadow-[0_4px_12px_oklch(0.18_0.08_240/0.5)] md:h-[6.5rem] md:w-[6.5rem]"
             />
           </a>
           <div className="hidden items-center gap-8 text-sm text-white/80 md:flex">
