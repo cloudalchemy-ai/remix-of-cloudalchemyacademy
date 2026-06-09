@@ -270,7 +270,7 @@ function Index() {
               <span className="h-3 w-3 rounded-full bg-[oklch(0.75_0.18_25)]" />
               <span className="h-3 w-3 rounded-full bg-[oklch(0.85_0.16_85)]" />
               <span className="h-3 w-3 rounded-full bg-[oklch(0.75_0.15_155)]" />
-              <span className="ml-3 text-xs text-muted-foreground">academy.cloudalchemy.io/impact</span>
+              <span className="ml-3 text-xs text-muted-foreground">cloudalchemy.ai</span>
             </div>
             <div className="grid grid-cols-2 gap-px bg-border md:grid-cols-4">
               {[
