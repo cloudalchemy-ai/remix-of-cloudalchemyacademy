@@ -259,7 +259,7 @@ function Index() {
           </div>
         </nav>
         {mobileOpen && (
-          <div className="border-t border-white/10 bg-[oklch(0.16_0.03_230)] md:hidden">
+          <div className="border-t border-white/10 bg-[oklch(0.12_0.05_250)] md:hidden">
             <div className="mx-auto flex max-w-7xl flex-col px-4 py-2 sm:px-6">
               {NAV_LINKS.map((l) => (
                 <a
