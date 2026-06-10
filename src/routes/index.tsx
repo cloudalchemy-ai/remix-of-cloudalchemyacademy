@@ -321,8 +321,7 @@ function Index() {
         <div className="mx-auto max-w-6xl">
           <SectionLabel>What we deliver</SectionLabel>
           <h2 className="mt-4 text-4xl font-bold tracking-tight md:text-5xl">
-
-            Four pillars covering the full Agentic AI lifecycle
+            Four pillars covering the full Agentic AI Lifecycle
           </h2>
           <p className="mt-4 max-w-2xl text-muted-foreground">
             Choose a single pillar or combine them into a multi-quarter program tailored to your organization.
