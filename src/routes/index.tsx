@@ -88,7 +88,7 @@ const pillars = [
     bullets: [
       "Prompt injection, jailbreaks, and tool abuse defense",
       "Identity, secrets, least-privilege for agents",
-      "EU AI Act, DORA, NIST AI RMF",
+      "Compliance mapping and model risk governance aligned to the EU AI Act, DORA, and NIST AI RMF",
     ],
   },
 ];
