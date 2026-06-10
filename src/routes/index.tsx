@@ -500,6 +500,21 @@ function Index() {
         </div>
       </section>
 
+      {/* GLOBAL REACH */}
+      <section id="reach" className="px-6 py-24">
+        <div className="mx-auto max-w-6xl">
+          <SectionLabel>Global reach</SectionLabel>
+          <h2 className="mt-4 text-4xl font-bold tracking-tight md:text-5xl">
+            Trusted by learners across 6 continents
+          </h2>
+          <p className="mt-4 max-w-2xl text-muted-foreground">
+            From London to São Paulo, Bengaluru to Singapore — our students span the globe.
+          </p>
+          <div className="mt-12 rounded-2xl border border-border bg-card p-4 shadow-[var(--shadow-soft)] md:p-8">
+            <GlobalReachMap />
+          </div>
+        </div>
+      </section>
 
       {/* CTA */}
       <section id="contact" className="px-6 py-24">
