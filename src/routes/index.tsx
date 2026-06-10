@@ -23,6 +23,7 @@ import {
   CheckCircle2,
   Mail,
   Monitor,
+  Menu,
   PlayCircle,
   Building2,
   Star,
@@ -195,15 +196,34 @@ const delivery = [
   },
 ];
 
+const NAV_LINKS = [
+  { href: "#", label: "Home" },
+  { href: "#pillars", label: "Services" },
+  { href: "#courses", label: "Courses" },
+  { href: "#delivery", label: "Delivery" },
+  { href: "#team", label: "Meet Your Team" },
+];
+
 function Index() {
   const [contactOpen, setContactOpen] = useState(false);
-  const openContact = () => setContactOpen(true);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const openContact = () => {
+    setMobileOpen(false);
+    setContactOpen(true);
+  };
   return (
     <div className="min-h-screen bg-background text-foreground">
       <ContactModal open={contactOpen} onClose={() => setContactOpen(false)} />
       {/* NAV */}
-      <header className="sticky top-0 z-50 w-full bg-[oklch(0.16_0.03_230)]">
-        <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 md:py-4">
+      <header
+        className="sticky top-0 z-50 w-full"
+        style={{
+          backgroundImage: `var(--hero-overlay), url(${heroBg})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center top",
+        }}
+      >
+        <nav className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:px-6 md:py-4">
           <a href="#" aria-label="Cloud Alchemy Academy" className="shrink-0">
             <img
               src={logoAsset}
@@ -212,32 +232,48 @@ function Index() {
             />
           </a>
           <div className="hidden items-center gap-8 text-sm text-white/80 md:flex">
-            <a href="#" className="hover:text-white">
-              Home
-            </a>
-            <a href="#pillars" className="hover:text-white">
-              Services
-            </a>
-            <a href="#courses" className="hover:text-white">
-              Courses
-            </a>
-            <a href="#delivery" className="hover:text-white">
-              Delivery
-            </a>
-            <a href="#team" className="hover:text-white">
-              Meet Your Team
-            </a>
+            {NAV_LINKS.map((l) => (
+              <a key={l.label} href={l.href} className="transition hover:text-white">
+                {l.label}
+              </a>
+            ))}
           </div>
-          <button
-            type="button"
-            onClick={openContact}
-            className="inline-flex shrink-0 items-center gap-2 rounded-full bg-[color:var(--brand-teal)] px-3 py-2 text-xs font-medium text-[oklch(0.16_0.03_230)] shadow-sm transition hover:brightness-110 sm:px-4 sm:text-sm"
-          >
-            <Mail className="h-4 w-4" />
-            <span className="hidden sm:inline">Book Training</span>
-            <span className="sm:hidden">Book</span>
-          </button>
+          <div className="flex shrink-0 items-center gap-2">
+            <button
+              type="button"
+              onClick={openContact}
+              className="inline-flex shrink-0 items-center gap-2 rounded-full bg-[color:var(--brand-teal)] px-4 py-2 text-sm font-medium text-[oklch(0.16_0.03_230)] shadow-sm transition hover:brightness-110"
+            >
+              <Mail className="h-4 w-4" />
+              <span>Book Training</span>
+            </button>
+            <button
+              type="button"
+              onClick={() => setMobileOpen((v) => !v)}
+              aria-label={mobileOpen ? "Close menu" : "Open menu"}
+              aria-expanded={mobileOpen}
+              className="inline-flex h-10 w-10 items-center justify-center rounded-md text-white/80 transition hover:bg-white/10 hover:text-white md:hidden"
+            >
+              {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
+          </div>
         </nav>
+        {mobileOpen && (
+          <div className="border-t border-white/10 bg-[oklch(0.12_0.05_250)] md:hidden">
+            <div className="mx-auto flex max-w-7xl flex-col px-4 py-2 sm:px-6">
+              {NAV_LINKS.map((l) => (
+                <a
+                  key={l.label}
+                  href={l.href}
+                  onClick={() => setMobileOpen(false)}
+                  className="border-b border-white/5 py-3 text-sm text-white/80 transition last:border-b-0 hover:text-white"
+                >
+                  {l.label}
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
       </header>
 
       {/* HERO */}
@@ -249,7 +285,7 @@ function Index() {
           backgroundPosition: "center",
         }}
       >
-        <div className="mx-auto max-w-5xl px-6 pt-16 text-center">
+        <div className="mx-auto max-w-5xl px-6 text-center">
           <span className="inline-flex items-center gap-2 rounded-full border border-[color:var(--brand-teal)]/40 bg-white/5 px-4 py-1.5 text-xs font-medium text-[color:var(--brand-teal)] backdrop-blur">
             <Sparkles className="h-3.5 w-3.5" />
             Enterprise AI &amp; Agentic AI Training
@@ -507,7 +543,7 @@ function Index() {
       </section>
 
       {/* GLOBAL REACH */}
-      <section id="reach" className="px-6 py-24">
+      <section id="reach" className="px-6 pt-24 pb-8">
         <div className="mx-auto max-w-6xl">
           <SectionLabel>Global reach</SectionLabel>
           <h2 className="mt-4 text-4xl font-bold tracking-tight md:text-5xl">
@@ -523,7 +559,7 @@ function Index() {
       </section>
 
       {/* CTA */}
-      <section id="contact" className="px-6 py-24">
+      <section id="contact" className="px-6 pt-8 pb-24">
         <div className="mx-auto max-w-4xl rounded-3xl border border-border bg-card p-10 text-center shadow-[var(--shadow-card)] md:p-16">
           <SectionLabel>Get started</SectionLabel>
           <h2 className="mt-4 text-4xl font-bold tracking-tight md:text-5xl">

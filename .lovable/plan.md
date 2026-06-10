@@ -1,11 +1,13 @@
-## Problem
-The header in `src/routes/index.tsx` (line 205) uses `absolute top-0`, so it scrolls away with the hero and is no longer reachable from lower sections like Delivery.
+The global map image is currently referenced via a Lovable CDN pointer (`/__l5e/assets-v1/...`). That path is served on Lovable's preview domain but is NOT available on the custom Cloudflare-published site, so the `<img>` 404s and renders the broken-image placeholder.
 
-## Fix
-Change the header to be sticky to the viewport so the nav (Home / Services / Courses / Delivery / Meet Your Team / Book Training) stays visible while scrolling.
+Fix: stop using the CDN pointer for this image and let Vite bundle it as a normal hashed asset under `dist/assets/` so it ships with the build to Cloudflare.
 
-1. In `src/routes/index.tsx`, replace the header's `absolute top-0 left-0 right-0 z-20` classes with `sticky top-0 z-50 w-full bg-background/80 backdrop-blur border-b border-border/40`.
-2. Since the header is no longer absolutely positioned over the hero, remove/adjust the hero section's top padding that was reserving space for it, so there isn't a double gap above the hero.
-3. Verify no ancestor (page root / hero wrapper) has `overflow-hidden` or a `transform` that would break `sticky`. If found, remove it from the ancestor only (keep section-local clipping intact).
+Steps:
+1. Download the binary from the current CDN URL (`/__l5e/assets-v1/d462d642-.../globalmap.jpeg`) into `src/assets/globalmap.jpeg` so the real file lives in the repo.
+2. Update `src/components/GlobalReachMap.tsx`:
+   - Remove: `import globalMap from "@/assets/globalmap.jpeg.asset.json";` and `src={globalMap.url}`
+   - Add: `import globalMap from "@/assets/globalmap.jpeg";` and `src={globalMap}`
+3. Delete the now-unused pointer file `src/assets/globalmap.jpeg.asset.json`.
+4. Verify the image renders in preview.
 
-No changes to logic, routing, or the contact/email flow.
+Result: Vite imports the JPEG, emits it to `dist/assets/globalmap-[hash].jpeg`, and Cloudflare serves it correctly on both preview and the published `cloudalchemyai.lovable.app` site.
