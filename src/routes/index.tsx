@@ -323,7 +323,8 @@ function Index() {
           <h2 className="mt-4 text-4xl font-bold tracking-tight md:text-5xl">
             Four pillars covering the full Agentic AI Lifecycle
           </h2>
-          <p className="mt-4 max-w-2xl text-muted-foreground">
+          <p className="mt-4 text-muted-foreground">
+
             Choose a single pillar or combine them into a multi-quarter program tailored to your organization.
           </p>
 
@@ -368,7 +369,8 @@ function Index() {
 
             Hands-on training across the Agentic AI stack
           </h2>
-          <p className="mt-4 max-w-2xl text-muted-foreground">
+          <p className="mt-4 text-muted-foreground">
+
             Each course can be delivered as a private cohort for your team, customized to your stack and use cases.
           </p>
 
@@ -423,7 +425,7 @@ function Index() {
           <h2 className="mt-4 text-4xl font-bold tracking-tight md:text-5xl">
             Train your way — anywhere in the world
           </h2>
-          <p className="mt-4 max-w-2xl text-muted-foreground">
+          <p className="mt-4 text-muted-foreground">
             Pick the format that fits your team. Every mode is delivered by the same expert instructors with the same
             hands-on labs.
           </p>
