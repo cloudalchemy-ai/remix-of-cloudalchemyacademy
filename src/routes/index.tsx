@@ -23,6 +23,7 @@ import {
   CheckCircle2,
   Mail,
   Monitor,
+  Menu,
   PlayCircle,
   Building2,
   Star,
