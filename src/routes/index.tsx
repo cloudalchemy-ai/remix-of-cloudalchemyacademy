@@ -454,13 +454,16 @@ function Index() {
 
       {/* TEAM */}
       <section id="team" className="bg-[oklch(0.16_0.03_230)] px-6 py-24 text-white">
-        <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1.1fr_1fr] lg:items-center">
-          <div>
+        <div className="mx-auto max-w-6xl">
+          <div className="max-w-3xl">
             <SectionLabel light>Meet your team</SectionLabel>
             <h2 className="mt-4 text-4xl font-bold tracking-tight md:text-5xl">
               Transforming careers through technology education
             </h2>
-            <div className="mt-6 space-y-4 text-white/75">
+            <div className="mt-4 h-1 w-16 rounded-full bg-[color:var(--brand-teal)]" />
+          </div>
+          <div className="mt-12 grid gap-12 lg:grid-cols-[1.1fr_1fr] lg:items-start">
+            <div className="space-y-4 text-white/75">
               <p>
                 We're Cloud Alchemy Academy — founded by Kshitij Joy, a Gen AI Architect with over 20 years building and
                 securing enterprise systems for some of the world's most regulated financial institutions, including
@@ -477,24 +480,25 @@ function Index() {
                 Pro, and Microsoft certifications in AI and Azure.
               </p>
             </div>
-          </div>
-          <div className="grid gap-4 sm:grid-cols-2">
-            {[
-              { icon: Users, k: "60,000+", l: "Professionals trained", s: "Udemy + Coursera reach" },
-              { icon: Building2, k: "20+ yrs", l: "Enterprise experience", s: "Banking, fintech, regulated" },
-              { icon: Sparkles, k: "Mission", l: "Enterprise-grade AI for all", s: "Accessible worldwide" },
-              { icon: Globe, k: "6 continents", l: "Global reach", s: "Students everywhere" },
-            ].map((s) => (
-              <div key={s.l} className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur">
-                <s.icon className="h-5 w-5 text-[color:var(--brand-teal)]" />
-                <div className="mt-4 text-2xl font-bold tracking-tight">{s.k}</div>
-                <div className="mt-1 text-sm font-medium text-white/90">{s.l}</div>
-                <div className="mt-1 text-xs text-white/60">{s.s}</div>
-              </div>
-            ))}
+            <div className="grid gap-4 sm:grid-cols-2">
+              {[
+                { icon: Users, k: "60,000+", l: "Professionals trained", s: "Udemy + Coursera reach" },
+                { icon: Building2, k: "20+ yrs", l: "Enterprise experience", s: "Banking, fintech, regulated" },
+                { icon: Sparkles, k: "Mission", l: "Enterprise-grade AI for all", s: "Accessible worldwide" },
+                { icon: Globe, k: "6 continents", l: "Global reach", s: "Students everywhere" },
+              ].map((s) => (
+                <div key={s.l} className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur">
+                  <s.icon className="h-5 w-5 text-[color:var(--brand-teal)]" />
+                  <div className="mt-4 text-2xl font-bold tracking-tight">{s.k}</div>
+                  <div className="mt-1 text-sm font-medium text-white/90">{s.l}</div>
+                  <div className="mt-1 text-xs text-white/60">{s.s}</div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
+
 
       {/* CTA */}
       <section id="contact" className="px-6 py-24">
