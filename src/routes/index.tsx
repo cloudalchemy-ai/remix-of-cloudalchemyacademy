@@ -324,7 +324,7 @@ function Index() {
                 <div className="w-1.5 shrink-0 bg-[color:var(--brand-teal)]" />
                 <div className="flex-1 p-8">
                   <div className="mb-6 flex items-start justify-between">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[color:var(--brand-teal)]/10 text-[color:var(--brand-teal-dark)]">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[color:var(--brand-teal)]/10 text-[color:var(--brand-teal)]">
                       <p.icon className="h-6 w-6" />
                     </div>
                     <span className="select-none text-4xl font-black tabular-nums text-border transition-colors group-hover:text-[color:var(--brand-teal)]/30">
