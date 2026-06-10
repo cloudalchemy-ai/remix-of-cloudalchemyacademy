@@ -554,12 +554,7 @@ function Index() {
           <div className="grid grid-cols-1 gap-10 md:grid-cols-3">
             {/* Brand */}
             <div>
-              <img
-                src={logoAsset}
-                alt="Cloud Alchemy Academy"
-                className="h-18 w-18 object-contain"
-              />
-              <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
+              <p className="max-w-xs text-sm leading-relaxed text-muted-foreground">
                 Enterprise training in AI, Agentic AI development, security, strategy, and end-to-end agentic
                 architectures.
               </p>
