@@ -464,17 +464,17 @@ function Index() {
           </div>
           <div className="mt-12 grid gap-12 lg:grid-cols-[1.1fr_1fr] lg:items-start">
             <div className="space-y-4 text-white/75">
-              <p>
+              <p className="text-justify">
                 We're Cloud Alchemy Academy — founded by Kshitij Joy, a Gen AI Architect with over 20 years building and
                 securing enterprise systems for some of the world's most regulated financial institutions, including
                 Deutsche Bank, the Bank of England, and JP Morgan.
               </p>
-              <p>
+              <p className="text-justify">
                 We teach the agentic AI stack the way it actually has to work in production: observable, secure, and
                 compliant. Multi-agent orchestration, MCP, RAG, and real deployment patterns — not toy demos, but the
                 architecture that survives an audit and scales under load.
               </p>
-              <p>
+              <p className="text-justify">
                 As a member of the invitation-only Udemy Instructor Partner Program, we've taught these patterns to
                 60,000+ professionals across Udemy and Coursera. Credentials include Oracle Certified Master, Oracle ACE
                 Pro, and Microsoft certifications in AI and Azure.
