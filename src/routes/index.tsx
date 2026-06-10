@@ -247,7 +247,7 @@ function Index() {
 
           <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-white/75 md:text-lg">
             Cloud Alchemy Agentic AI Academy delivers hands-on training for corporations and enterprises across agent
-            development, security, strategy, and end-to-end agentic architectures — remote, virtual, or on-site.
+            development, security, strategy, and end-to-end agentic architectures - remote, virtual, or on-site.
           </p>
 
           <div className="mt-8 flex flex-wrap justify-center gap-3">
