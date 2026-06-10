@@ -455,7 +455,7 @@ function Index() {
       {/* TEAM */}
       <section id="team" className="bg-[oklch(0.16_0.03_230)] px-6 py-24 text-white">
         <div className="mx-auto max-w-6xl">
-          <div className="max-w-3xl">
+          <div>
             <SectionLabel light>Meet your team</SectionLabel>
             <h2 className="mt-4 text-4xl font-bold tracking-tight md:text-5xl">
               Transforming careers through technology education
