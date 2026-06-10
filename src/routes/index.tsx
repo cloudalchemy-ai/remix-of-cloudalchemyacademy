@@ -1,13 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import heroBg from "@/assets/hero-bg.jpg";
-import logoAsset from "@/assets/cloud-alchemy-logo.png";
-import courseCopilot from "@/assets/courses/copilot.jpeg";
-import courseFoundry from "@/assets/courses/foundry.jpeg";
-import courseMaf from "@/assets/courses/maf.jpeg";
-import courseGenai from "@/assets/courses/genai.jpeg";
-import courseMcp from "@/assets/courses/mcp.jpeg";
-import courseOllama from "@/assets/courses/ollama.jpeg";
+import logoAsset from "@/assets/cloud-alchemy-logo.png.asset.json";
+import courseCopilot from "@/assets/courses/copilot.jpeg.asset.json";
+import courseFoundry from "@/assets/courses/foundry.jpeg.asset.json";
+import courseMaf from "@/assets/courses/maf.jpeg.asset.json";
+import courseGenai from "@/assets/courses/genai.jpeg.asset.json";
+import courseMcp from "@/assets/courses/mcp.jpeg.asset.json";
+import courseOllama from "@/assets/courses/ollama.jpeg.asset.json";
 import {
   GraduationCap,
   Shield,
