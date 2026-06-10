@@ -87,7 +87,7 @@ const pillars = [
     body: "Red-team, blue-team, and governance training tailored to LLM and agentic systems in regulated enterprises.",
     bullets: [
       "Prompt injection, jailbreaks, and tool abuse defense",
-      "Identity, secrets, least-privilege",
+      "Identity, secrets, least-privilege for agents",
       "EU AI Act, DORA, NIST AI RMF",
     ],
   },
