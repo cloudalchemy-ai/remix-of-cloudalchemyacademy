@@ -66,8 +66,8 @@ const pillars = [
     title: "AI & Agent Development",
     body: "Hands-on engineering tracks from prompt fundamentals to production-grade autonomous agents.",
     bullets: [
-      "OpenAI, Azure OpenAI, Claude, Gemini",
-      "Tool calling, MCP, A2A, memory, evals",
+      "Build agents with OpenAI, Azure OpenAI, Claude, and Gemini",
+      "Tool calling, MCP, A2A, planning, memory, and evaluation",
       "Reference architectures on your stack",
     ],
   },
