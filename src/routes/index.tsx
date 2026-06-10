@@ -319,15 +319,15 @@ function Index() {
             {pillars.map((p, idx) => (
               <div
                 key={p.title}
-                className="group relative flex overflow-hidden rounded-2xl border border-border/60 bg-card shadow-xl shadow-[oklch(0.2_0.08_250/0.08)] transition-all duration-300 hover:border-[color:var(--brand-teal)]/40 hover:shadow-[color:var(--brand-teal)]/10"
+                className="group relative flex overflow-hidden rounded-2xl border border-border/60 bg-card shadow-xl shadow-[oklch(0.2_0.08_250/0.08)] transition-all duration-300 hover:border-[color:var(--brand-teal-dark)]/40 hover:shadow-[color:var(--brand-teal-dark)]/10"
               >
-                <div className="w-1.5 shrink-0 bg-[color:var(--brand-teal)]" />
+                <div className="w-1.5 shrink-0 bg-[color:var(--brand-teal-dark)]" />
                 <div className="flex-1 p-8">
                   <div className="mb-6 flex items-start justify-between">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[color:var(--brand-teal)]/10 text-[color:var(--brand-teal)]">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[color:var(--brand-teal-dark)]/10 text-[color:var(--brand-teal-dark)]">
                       <p.icon className="h-6 w-6" />
                     </div>
-                    <span className="select-none text-4xl font-black tabular-nums text-border transition-colors group-hover:text-[color:var(--brand-teal)]/30">
+                    <span className="select-none text-4xl font-black tabular-nums text-border transition-colors group-hover:text-[color:var(--brand-teal-dark)]/30">
                       {String(idx + 1).padStart(2, "0")}
                     </span>
                   </div>
@@ -336,7 +336,7 @@ function Index() {
                   <ul className="space-y-3">
                     {p.bullets.map((b) => (
                       <li key={b} className="flex items-center gap-3 text-sm text-foreground/85">
-                        <CheckCircle2 className="h-4 w-4 shrink-0 text-[color:var(--brand-teal)]" />
+                        <CheckCircle2 className="h-4 w-4 shrink-0 text-[color:var(--brand-teal-dark)]" />
                         <span>{b}</span>
                       </li>
                     ))}
