@@ -543,7 +543,7 @@ function Index() {
       </section>
 
       {/* GLOBAL REACH */}
-      <section id="reach" className="px-6 py-24">
+      <section id="reach" className="px-6 pt-24 pb-8">
         <div className="mx-auto max-w-6xl">
           <SectionLabel>Global reach</SectionLabel>
           <h2 className="mt-4 text-4xl font-bold tracking-tight md:text-5xl">
@@ -559,7 +559,7 @@ function Index() {
       </section>
 
       {/* CTA */}
-      <section id="contact" className="px-6 py-24">
+      <section id="contact" className="px-6 pt-8 pb-24">
         <div className="mx-auto max-w-4xl rounded-3xl border border-border bg-card p-10 text-center shadow-[var(--shadow-card)] md:p-16">
           <SectionLabel>Get started</SectionLabel>
           <h2 className="mt-4 text-4xl font-bold tracking-tight md:text-5xl">
