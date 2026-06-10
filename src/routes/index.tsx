@@ -241,7 +241,7 @@ function Index() {
 
       {/* HERO */}
       <section
-        className="relative isolate overflow-hidden pb-32 pt-32"
+        className="relative isolate overflow-hidden pb-32 pt-16"
         style={{
           backgroundImage: `var(--hero-overlay), url(${heroBg})`,
           backgroundSize: "cover",
