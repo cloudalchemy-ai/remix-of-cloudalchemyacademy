@@ -423,7 +423,7 @@ function Index() {
         <div className="mx-auto max-w-6xl">
           <SectionLabel>Delivery</SectionLabel>
           <h2 className="mt-4 text-4xl font-bold tracking-tight md:text-5xl">
-            Train your way — anywhere in the world
+            Train your way - anywhere in the world
           </h2>
           <p className="mt-4 text-muted-foreground">
             Pick the format that fits your team. Every mode is delivered by the same expert instructors with the same
