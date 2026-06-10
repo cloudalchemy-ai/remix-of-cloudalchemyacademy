@@ -504,12 +504,13 @@ function Index() {
             Tell us about your team, your stack, and your timeline. We'll design a program that fits.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <a
-              href="mailto:hello@cloudalchemy.academy"
+            <button
+              type="button"
+              onClick={openContact}
               className="inline-flex items-center gap-2 rounded-md bg-[color:var(--brand-teal)] px-6 py-3 text-sm font-semibold text-[oklch(0.16_0.03_230)] shadow-lg transition hover:brightness-110"
             >
               Book a training <ArrowRight className="h-4 w-4" />
-            </a>
+            </button>
             <a
               href="#courses"
               className="inline-flex items-center gap-2 rounded-md border border-border bg-background px-6 py-3 text-sm font-semibold text-foreground transition hover:bg-secondary"
