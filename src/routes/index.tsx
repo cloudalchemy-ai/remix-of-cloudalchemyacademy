@@ -73,7 +73,7 @@ const pillars = [
   },
   {
     icon: Layers,
-    title: "End-to-End Architectures",
+    title: "End-to-End Agentic Architectures",
     body: "Deep engagements covering multi-agent design, orchestration, integration, and operations.",
     bullets: [
       "Multi-agent orchestration patterns",
