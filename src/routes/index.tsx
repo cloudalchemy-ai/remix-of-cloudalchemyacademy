@@ -1,5 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
+import { useServerFn } from "@tanstack/react-start";
+import { sendTrainingEnquiry } from "@/lib/send-training-enquiry.functions";
 import heroBg from "@/assets/hero-bg.jpg";
 import logoAsset from "@/assets/cloud-alchemy-logo.png";
 import courseCopilot from "@/assets/courses/copilot.jpeg";
