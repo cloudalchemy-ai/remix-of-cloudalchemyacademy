@@ -24,6 +24,10 @@ import {
   PlayCircle,
   Building2,
   Star,
+  X,
+  Send,
+  Globe2,
+  Clock,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
