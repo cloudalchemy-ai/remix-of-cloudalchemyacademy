@@ -202,8 +202,8 @@ function Index() {
     <div className="min-h-screen bg-background text-foreground">
       <ContactModal open={contactOpen} onClose={() => setContactOpen(false)} />
       {/* NAV */}
-      <header className="absolute top-0 left-0 right-0 z-20">
-        <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-0">
+      <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-[oklch(0.16_0.03_230)]/85 backdrop-blur supports-[backdrop-filter]:bg-[oklch(0.16_0.03_230)]/70">
+        <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-2">
           <a href="#" aria-label="Cloud Alchemy Academy" className="flex items-center">
             <img
               src={logoAsset}
@@ -241,7 +241,7 @@ function Index() {
 
       {/* HERO */}
       <section
-        className="relative isolate overflow-hidden pb-32 pt-32"
+        className="relative isolate overflow-hidden pb-32 pt-16"
         style={{
           backgroundImage: `var(--hero-overlay), url(${heroBg})`,
           backgroundSize: "cover",
