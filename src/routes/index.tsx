@@ -28,6 +28,9 @@ import {
   Send,
   Globe2,
   Clock,
+  Heart,
+  Linkedin,
+  Youtube,
 } from "lucide-react";
 import { GlobalReachMap } from "@/components/GlobalReachMap";
 
