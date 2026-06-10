@@ -199,6 +199,9 @@ function Index() {
             />
           </a>
           <div className="hidden items-center gap-8 text-sm text-white/80 md:flex">
+            <a href="#" className="hover:text-white">
+              Home
+            </a>
             <a href="#pillars" className="hover:text-white">
               Services
             </a>
