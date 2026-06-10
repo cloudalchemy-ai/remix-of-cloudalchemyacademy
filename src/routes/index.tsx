@@ -28,6 +28,9 @@ import {
   Send,
   Globe2,
   Clock,
+  Heart,
+  Linkedin,
+  Youtube,
 } from "lucide-react";
 import { GlobalReachMap } from "@/components/GlobalReachMap";
 
@@ -544,19 +547,97 @@ function Index() {
         </div>
       </section>
 
-      <footer className="border-t border-border px-6 py-10">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 text-sm text-muted-foreground md:flex-row">
-          <span>© {new Date().getFullYear()} Cloud Alchemy Academy</span>
-          <div className="flex gap-6">
-            <a href="#pillars" className="hover:text-foreground">
-              Services
-            </a>
-            <a href="#courses" className="hover:text-foreground">
-              Courses
-            </a>
-            <a href="#contact" className="hover:text-foreground">
-              Contact
-            </a>
+      <footer className="border-t border-border bg-secondary/30 px-6 pt-16 pb-8">
+        <div className="mx-auto max-w-6xl">
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-3">
+            {/* Brand */}
+            <div>
+              <img
+                src={logoAsset}
+                alt="Cloud Alchemy Academy"
+                className="h-20 w-20 object-contain"
+              />
+              <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
+                Enterprise training in AI, Agentic AI development, security, strategy, and end-to-end agentic
+                architectures.
+              </p>
+            </div>
+
+            {/* Explore */}
+            <div>
+              <h3 className="text-sm font-bold text-foreground">Explore</h3>
+              <ul className="mt-5 space-y-3 text-sm text-muted-foreground">
+                <li>
+                  <a href="#pillars" className="transition hover:text-[color:var(--brand-teal-dark)]">
+                    Services
+                  </a>
+                </li>
+                <li>
+                  <a href="#courses" className="transition hover:text-[color:var(--brand-teal-dark)]">
+                    Courses
+                  </a>
+                </li>
+                <li>
+                  <a href="#delivery" className="transition hover:text-[color:var(--brand-teal-dark)]">
+                    Delivery
+                  </a>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    onClick={openContact}
+                    className="transition hover:text-[color:var(--brand-teal-dark)]"
+                  >
+                    Contact
+                  </button>
+                </li>
+              </ul>
+            </div>
+
+            {/* Get in touch */}
+            <div>
+              <h3 className="text-sm font-bold text-foreground">Get in touch</h3>
+              <ul className="mt-5 space-y-3 text-sm text-muted-foreground">
+                <li className="flex items-center gap-3">
+                  <Mail className="h-4 w-4 text-[color:var(--brand-teal-dark)]" />
+                  <a
+                    href="mailto:contact@cloudalchemy.uk"
+                    className="transition hover:text-[color:var(--brand-teal-dark)]"
+                  >
+                    contact@cloudalchemy.uk
+                  </a>
+                </li>
+                <li className="flex items-center gap-3">
+                  <Globe2 className="h-4 w-4 text-[color:var(--brand-teal-dark)]" />
+                  Worldwide · Remote &amp; On-site
+                </li>
+              </ul>
+              <div className="mt-5 flex gap-3">
+                <a
+                  href="#"
+                  aria-label="LinkedIn"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-[color:var(--brand-teal)]/15 text-[color:var(--brand-teal-dark)] transition hover:bg-[color:var(--brand-teal)]/30"
+                >
+                  <Linkedin className="h-4 w-4" />
+                </a>
+                <a
+                  href="#"
+                  aria-label="YouTube"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-[color:var(--brand-teal)]/15 text-[color:var(--brand-teal-dark)] transition hover:bg-[color:var(--brand-teal)]/30"
+                >
+                  <Youtube className="h-4 w-4" />
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom bar */}
+          <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-border pt-6 text-sm text-muted-foreground md:flex-row">
+            <span>© {new Date().getFullYear()} Cloud Alchemy. All rights reserved.</span>
+            <span className="inline-flex items-center gap-1.5">
+              Made with <Heart className="h-4 w-4 fill-[color:var(--brand-teal)] text-[color:var(--brand-teal)]" /> for
+              learners worldwide
+            </span>
           </div>
         </div>
       </footer>

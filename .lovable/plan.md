@@ -1,29 +1,50 @@
-## Restructure the "Meet Your Team" section
+## Footer Redesign
 
-**File:** `src/routes/index.tsx` (lines ~456–497)
+Replace the current single-row footer in `src/routes/index.tsx` with a structured multi-column layout. Keep the existing dark/teal brand theme — only the structure and content change.
 
-**Current:** Heading and intro paragraphs share the left column; stat cards sit on the right — heading and cards aren't aligned at the top.
-
-**Change to:**
+### Layout
 
 ```text
-┌─────────────────────────────────────────────────┐
-│ MEET YOUR TEAM (label)                          │
-│ Transforming Careers Through Technology         │
-│ Education                                       │
-│ ──── (teal accent underline)                    │
-├──────────────────────────┬──────────────────────┤
-│ Mentor info paragraphs   │  Stat cards (1×4)    │
-│ (Kshitij Joy bio, etc.)  │                      │
-└──────────────────────────┴──────────────────────┘
+┌──────────────────────────────────────────────────────────────────────┐
+│  [LOGO]              Explore              Get in touch               │
+│  Enterprise          Services             ✉ contact@cloudalchemy.uk  │
+│  training in AI,     Courses              🌐 Worldwide · Remote &    │
+│  Agentic AI...       Delivery                  On-site               │
+│                      Contact              [in]  [▶]                  │
+├──────────────────────────────────────────────────────────────────────┤
+│  © 2026 Cloud Alchemy. All rights reserved.   Made with ♥ for learners worldwide │
+└──────────────────────────────────────────────────────────────────────┘
 ```
 
-### Implementation
+### Content per column
 
-1. Move `SectionLabel`, the `<h2>` heading, and a short teal accent bar out of the left column into a full-width header block above the grid.
-2. Keep the existing two-column grid (`lg:grid-cols-[1.1fr_1fr]`) below the header, but change `lg:items-center` → `lg:items-start` so the mentor bio paragraphs align to the top of the cards.
-3. Left column now contains only the three `<p>` bio paragraphs.
-4. Right column unchanged (stat cards grid).
-5. No color/theme changes — keep dark navy background and existing teal accents.
+1. **Brand (col 1)**
+   - Existing logo image (`logoAsset`)
+   - Short tagline: "Enterprise training in AI, Agentic AI development, security, strategy, and end-to-end agentic architectures."
 
-No other sections touched.
+2. **Explore (col 2)** — heading + vertical link list
+   - Services → `#pillars`
+   - Courses → `#courses`
+   - Delivery → `#delivery`
+   - Contact → opens contact modal
+
+3. **Get in touch (col 3)**
+   - Mail icon + `contact@cloudalchemy.uk` (mailto)
+   - Globe icon + "Worldwide · Remote & On-site"
+   - Social icons row: LinkedIn + YouTube (circular icon buttons, placeholder `#` URLs the user can fill in later)
+
+### Bottom bar
+- Thin divider above
+- Left: `© {year} Cloud Alchemy. All rights reserved.`
+- Right: `Made with ♥ for learners worldwide` (heart icon in brand teal)
+
+### Technical details
+
+- Single file change: `src/routes/index.tsx`, footer block only (~lines 531–546).
+- Use existing semantic tokens (`text-muted-foreground`, `border-border`, `bg-background`, `var(--brand-teal)`) — no hardcoded colors.
+- Layout: `grid grid-cols-1 md:grid-cols-3 gap-10` inside `max-w-6xl`; bottom bar in a separate flex row.
+- Contact link reuses the existing `openContact` handler (lift footer into `Index` scope where it already lives).
+- Lucide icons: reuse `Mail`, `Globe2`, `Heart` (new import), `Linkedin` (new), `Youtube` (new).
+- Social icon buttons: rounded-full, subtle background, hover state using brand teal.
+
+No new files, no dependency changes.
