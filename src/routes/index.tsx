@@ -190,8 +190,11 @@ const delivery = [
 ];
 
 function Index() {
+  const [contactOpen, setContactOpen] = useState(false);
+  const openContact = () => setContactOpen(true);
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <ContactModal open={contactOpen} onClose={() => setContactOpen(false)} />
       {/* NAV */}
       <header className="absolute top-0 left-0 right-0 z-20">
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-0">
