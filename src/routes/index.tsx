@@ -278,7 +278,7 @@ function Index() {
           backgroundPosition: "center",
         }}
       >
-        <div className="mx-auto max-w-5xl px-6 pt-16 text-center">
+        <div className="mx-auto max-w-5xl px-6 text-center">
           <span className="inline-flex items-center gap-2 rounded-full border border-[color:var(--brand-teal)]/40 bg-white/5 px-4 py-1.5 text-xs font-medium text-[color:var(--brand-teal)] backdrop-blur">
             <Sparkles className="h-3.5 w-3.5" />
             Enterprise AI &amp; Agentic AI Training
