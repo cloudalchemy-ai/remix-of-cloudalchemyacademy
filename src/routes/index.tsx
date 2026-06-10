@@ -83,8 +83,8 @@ const pillars = [
   },
   {
     icon: Shield,
-    title: "Security & Governance",
-    body: "Red-team, blue-team, and governance training for LLM and agentic systems in regulated enterprises.",
+    title: "AI & Agents Security & Governance",
+    body: "Red-team, blue-team, and governance training tailored to LLM and agentic systems in regulated enterprises.",
     bullets: [
       "Prompt injection, jailbreaks, tool abuse",
       "Identity, secrets, least-privilege",
