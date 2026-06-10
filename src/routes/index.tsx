@@ -510,10 +510,7 @@ function Index() {
 
       <footer className="border-t border-border px-6 py-10">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 text-sm text-muted-foreground md:flex-row">
-          <div className="flex items-center gap-2">
-            <img src={logoAsset} alt="" className="h-6 w-6 object-contain" />
-            <span>© {new Date().getFullYear()} Cloud Alchemy Academy</span>
-          </div>
+          <span>© {new Date().getFullYear()} Cloud Alchemy Academy</span>
           <div className="flex gap-6">
             <a href="#pillars" className="hover:text-foreground">
               Services
