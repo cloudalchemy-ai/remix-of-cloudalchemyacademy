@@ -1,13 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import heroBg from "@/assets/hero-bg.jpg";
-import logoAsset from "@/assets/cloud-alchemy-logo.png.asset.json";
-import courseCopilot from "@/assets/courses/copilot.jpeg.asset.json";
-import courseFoundry from "@/assets/courses/foundry.jpeg.asset.json";
-import courseMaf from "@/assets/courses/maf.jpeg.asset.json";
-import courseGenai from "@/assets/courses/genai.jpeg.asset.json";
-import courseMcp from "@/assets/courses/mcp.jpeg.asset.json";
-import courseOllama from "@/assets/courses/ollama.jpeg.asset.json";
+import logoAsset from "@/assets/cloud-alchemy-logo.png";
+import courseCopilot from "@/assets/courses/copilot.jpeg";
+import courseFoundry from "@/assets/courses/foundry.jpeg";
+import courseMaf from "@/assets/courses/maf.jpeg";
+import courseGenai from "@/assets/courses/genai.jpeg";
+import courseMcp from "@/assets/courses/mcp.jpeg";
+import courseOllama from "@/assets/courses/ollama.jpeg";
 import {
   GraduationCap,
   Shield,
@@ -99,7 +99,7 @@ const courses = [
     hours: "6.5h",
     lectures: "128",
     level: "All Levels",
-    image: courseCopilot.url,
+    image: courseCopilot,
   },
   {
     badge: null,
@@ -110,7 +110,7 @@ const courses = [
     hours: "12h",
     lectures: "225",
     level: "Beginner",
-    image: courseFoundry.url,
+    image: courseFoundry,
   },
   {
     badge: "Hot & New",
@@ -121,7 +121,7 @@ const courses = [
     hours: "5.5h",
     lectures: "90",
     level: "Intermediate",
-    image: courseMaf.url,
+    image: courseMaf,
   },
   {
     badge: "Bestseller",
@@ -132,7 +132,7 @@ const courses = [
     hours: "16.5h",
     lectures: "260",
     level: "Beginner",
-    image: courseGenai.url,
+    image: courseGenai,
   },
   {
     badge: null,
@@ -143,7 +143,7 @@ const courses = [
     hours: "7h",
     lectures: "122",
     level: "Intermediate",
-    image: courseMcp.url,
+    image: courseMcp,
   },
   {
     badge: null,
@@ -154,7 +154,7 @@ const courses = [
     hours: "7h",
     lectures: "130",
     level: "Beginner",
-    image: courseOllama.url,
+    image: courseOllama,
   },
 ];
 
@@ -193,7 +193,7 @@ function Index() {
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
           <a href="#" aria-label="Cloud Alchemy Academy" className="flex items-center">
             <img
-              src={logoAsset.url}
+              src={logoAsset}
               alt="Cloud Alchemy Academy"
               className="h-16 w-16 object-contain drop-shadow-[0_4px_12px_oklch(0.18_0.08_240/0.5)] md:h-20 md:w-20"
             />
@@ -503,7 +503,7 @@ function Index() {
       <footer className="border-t border-border px-6 py-10">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 text-sm text-muted-foreground md:flex-row">
           <div className="flex items-center gap-2">
-            <img src={logoAsset.url} alt="" className="h-6 w-6 object-contain" />
+            <img src={logoAsset} alt="" className="h-6 w-6 object-contain" />
             <span>© {new Date().getFullYear()} Cloud Alchemy Academy</span>
           </div>
           <div className="flex gap-6">
