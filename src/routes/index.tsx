@@ -750,11 +750,12 @@ function ContactModal({ open, onClose }: { open: boolean; onClose: () => void })
                   className="w-full rounded-md border border-border bg-background px-3 py-2 text-sm outline-none transition focus:border-[color:var(--brand-teal-dark)] focus:ring-2 focus:ring-[color:var(--brand-teal-dark)]/20"
                 >
                   <option value="">Select an area...</option>
-                  <option>AI &amp; Agent Strategy</option>
-                  <option>AI &amp; Agent Development</option>
-                  <option>End-to-End Architectures</option>
-                  <option>Security &amp; Governance</option>
-                  <option>Multiple / not sure yet</option>
+                  <option>Gen AI Basics</option>
+                  <option>Azure AI Services</option>
+                  <option>Azure Foundry Agent Service</option>
+                  <option>Copilot Studio</option>
+                  <option>Claude Ecosystem</option>
+                  <option>Other — provide details in message</option>
                 </select>
               </Field>
               <Field label="Tell us about your team & goals">
