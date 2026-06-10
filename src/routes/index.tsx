@@ -812,9 +812,9 @@ function ContactModal({ open, onClose }: { open: boolean; onClose: () => void })
           {submitted ? (
             <div className="flex h-full flex-col items-center justify-center text-center">
               <CheckCircle2 className="h-12 w-12 text-[color:var(--brand-teal-dark)]" />
-              <h3 className="mt-4 text-xl font-semibold">Thanks — your email client is open</h3>
+              <h3 className="mt-4 text-xl font-semibold">Thanks — we'll be in touch shortly</h3>
               <p className="mt-2 text-sm text-muted-foreground">
-                If nothing happened, email us directly at contact@cloudalchemy.uk.
+                Your enquiry was sent to our team. We typically reply within one business day.
               </p>
               <button
                 type="button"
