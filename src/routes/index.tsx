@@ -711,6 +711,9 @@ function AnimatedCounter({
 
 function ContactModal({ open, onClose }: { open: boolean; onClose: () => void }) {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const sendEnquiry = useServerFn(sendTrainingEnquiry);
   const [form, setForm] = useState({
     name: "",
     company: "",
@@ -739,14 +742,24 @@ function ContactModal({ open, onClose }: { open: boolean; onClose: () => void })
     setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const subject = encodeURIComponent(`Training enquiry — ${form.company || form.name}`);
-    const body = encodeURIComponent(
-      `Name: ${form.name}\nCompany: ${form.company}\nEmail: ${form.email}\nArea of interest: ${form.area}\n\n${form.message}`,
-    );
-    window.location.href = `mailto:contact@cloudalchemy.uk?subject=${subject}&body=${body}`;
-    setSubmitted(true);
+    if (submitting) return;
+    setError(null);
+    setSubmitting(true);
+    try {
+      await sendEnquiry({ data: form });
+      setSubmitted(true);
+    } catch (err) {
+      console.error(err);
+      setError(
+        err instanceof Error
+          ? err.message
+          : "Something went wrong. Please email contact@cloudalchemy.uk.",
+      );
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
