@@ -421,7 +421,7 @@ function Index() {
       <section id="delivery" className="px-6 py-24">
         <div className="mx-auto max-w-6xl">
           <SectionLabel>Delivery</SectionLabel>
-          <h2 className="mt-4 max-w-3xl text-4xl font-bold tracking-tight md:text-5xl">
+          <h2 className="mt-4 text-4xl font-bold tracking-tight md:text-5xl">
             Train your way — anywhere in the world
           </h2>
           <p className="mt-4 max-w-2xl text-muted-foreground">
