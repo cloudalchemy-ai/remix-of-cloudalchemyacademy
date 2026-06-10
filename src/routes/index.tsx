@@ -365,7 +365,8 @@ function Index() {
       <section id="courses" className="bg-secondary/40 px-6 py-24">
         <div className="mx-auto max-w-6xl">
           <SectionLabel>Course catalog</SectionLabel>
-          <h2 className="mt-4 max-w-3xl text-4xl font-bold tracking-tight md:text-5xl">
+          <h2 className="mt-4 text-4xl font-bold tracking-tight md:text-5xl">
+
             Hands-on training across the Agentic AI stack
           </h2>
           <p className="mt-4 max-w-2xl text-muted-foreground">
