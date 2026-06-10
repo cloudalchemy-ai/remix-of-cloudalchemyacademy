@@ -1,9 +1,9 @@
-import globalMap from "@/assets/globalmap.jpeg.asset.json";
+import globalMap from "@/assets/globalmap.jpeg";
 
 export function GlobalReachMap() {
   return (
     <img
-      src={globalMap.url}
+      src={globalMap}
       alt="World map showing global student reach across 6 continents"
       loading="lazy"
       className="h-auto w-full"
