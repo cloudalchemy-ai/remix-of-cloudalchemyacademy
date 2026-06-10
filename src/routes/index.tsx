@@ -513,7 +513,7 @@ function Index() {
             Trusted by learners across 6 continents
           </h2>
           <p className="mt-4 max-w-2xl text-muted-foreground">
-            From London to São Paulo, Bengaluru to Singapore — our students span the globe.
+            From London to São Paulo, Bengaluru to Singapore - our students span the globe.
           </p>
           <div className="mt-12 rounded-2xl border border-border bg-card p-4 shadow-[var(--shadow-soft)] md:p-8">
             <GlobalReachMap />
