@@ -888,12 +888,18 @@ function ContactModal({ open, onClose }: { open: boolean; onClose: () => void })
                   className="w-full resize-y rounded-md border border-border bg-background px-3 py-2 text-sm outline-none transition focus:border-[color:var(--brand-teal-dark)] focus:ring-2 focus:ring-[color:var(--brand-teal-dark)]/20"
                 />
               </Field>
+              {error && (
+                <p className="rounded-md border border-destructive/40 bg-destructive/10 px-3 py-2 text-sm text-destructive">
+                  {error}
+                </p>
+              )}
               <button
                 type="submit"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-[color:var(--brand-teal-dark)] px-6 py-3 text-sm font-semibold text-white shadow-lg transition hover:brightness-110"
+                disabled={submitting}
+                className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-[color:var(--brand-teal-dark)] px-6 py-3 text-sm font-semibold text-white shadow-lg transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-60"
               >
                 <Send className="h-4 w-4" />
-                Send enquiry
+                {submitting ? "Sending..." : "Send enquiry"}
               </button>
             </form>
           )}
