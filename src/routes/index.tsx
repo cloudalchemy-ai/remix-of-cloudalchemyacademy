@@ -64,11 +64,11 @@ const pillars = [
   {
     icon: Code2,
     title: "AI & Agent Development",
-    body: "Hands-on engineering tracks from prompt fundamentals to production-grade autonomous agents.",
+    body: "Hands-on engineering tracks that take teams from prompt fundamentals to production-grade autonomous agents.",
     bullets: [
       "Build agents with OpenAI, Azure OpenAI, Claude, and Gemini",
       "Tool calling, MCP, A2A, planning, memory, and evaluation",
-      "Reference architectures on your stack",
+      "Ship reference architectures on your stack",
     ],
   },
   {
