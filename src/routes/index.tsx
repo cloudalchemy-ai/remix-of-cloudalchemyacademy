@@ -259,12 +259,13 @@ function Index() {
           </p>
 
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <a
-              href="#contact"
+            <button
+              type="button"
+              onClick={openContact}
               className="inline-flex items-center gap-2 rounded-md bg-[color:var(--brand-teal)] px-6 py-3 text-sm font-semibold text-[oklch(0.16_0.03_230)] shadow-lg transition hover:brightness-110"
             >
               Book a training <ArrowRight className="h-4 w-4" />
-            </a>
+            </button>
             <a
               href="#courses"
               className="inline-flex items-center gap-2 rounded-md border border-white/25 bg-white/5 px-6 py-3 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/10"
