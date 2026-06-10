@@ -602,3 +602,193 @@ function AnimatedCounter({
     </span>
   );
 }
+
+function ContactModal({ open, onClose }: { open: boolean; onClose: () => void }) {
+  const [submitted, setSubmitted] = useState(false);
+  const [form, setForm] = useState({
+    name: "",
+    company: "",
+    email: "",
+    area: "",
+    message: "",
+  });
+
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    document.addEventListener("keydown", onKey);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prev;
+    };
+  }, [open, onClose]);
+
+  if (!open) return null;
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const subject = encodeURIComponent(`Training enquiry — ${form.company || form.name}`);
+    const body = encodeURIComponent(
+      `Name: ${form.name}\nCompany: ${form.company}\nEmail: ${form.email}\nArea of interest: ${form.area}\n\n${form.message}`,
+    );
+    window.location.href = `mailto:contact@cloudalchemy.uk?subject=${subject}&body=${body}`;
+    setSubmitted(true);
+  };
+
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-sm"
+      onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="contact-modal-title"
+    >
+      <div
+        className="relative grid w-full max-w-4xl overflow-hidden rounded-2xl bg-card shadow-2xl md:grid-cols-2"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          type="button"
+          onClick={onClose}
+          aria-label="Close"
+          className="absolute right-4 top-4 z-10 rounded-md p-1.5 text-muted-foreground transition hover:bg-secondary hover:text-foreground"
+        >
+          <X className="h-5 w-5" />
+        </button>
+
+        <aside className="bg-secondary/60 p-8 md:p-10">
+          <SectionLabel>Contact</SectionLabel>
+          <h2 id="contact-modal-title" className="mt-4 text-3xl font-bold tracking-tight md:text-4xl">
+            Book a training for your team
+          </h2>
+          <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+            Tell us about your team, your stack, and your goals. We'll come back with a tailored proposal within one
+            business day.
+          </p>
+          <ul className="mt-8 space-y-3 text-sm">
+            <li className="flex items-center gap-3 text-foreground/85">
+              <Mail className="h-4 w-4 text-[color:var(--brand-teal-dark)]" />
+              contact@cloudalchemy.uk
+            </li>
+            <li className="flex items-center gap-3 text-foreground/85">
+              <Globe2 className="h-4 w-4 text-[color:var(--brand-teal-dark)]" />
+              Worldwide — remote, virtual &amp; on-site
+            </li>
+            <li className="flex items-center gap-3 text-foreground/85">
+              <Clock className="h-4 w-4 text-[color:var(--brand-teal-dark)]" />
+              Reply within one business day
+            </li>
+          </ul>
+        </aside>
+
+        <div className="p-8 md:p-10">
+          {submitted ? (
+            <div className="flex h-full flex-col items-center justify-center text-center">
+              <CheckCircle2 className="h-12 w-12 text-[color:var(--brand-teal-dark)]" />
+              <h3 className="mt-4 text-xl font-semibold">Thanks — your email client is open</h3>
+              <p className="mt-2 text-sm text-muted-foreground">
+                If nothing happened, email us directly at contact@cloudalchemy.uk.
+              </p>
+              <button
+                type="button"
+                onClick={onClose}
+                className="mt-6 rounded-md border border-border bg-background px-4 py-2 text-sm font-medium hover:bg-secondary"
+              >
+                Close
+              </button>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="space-y-5">
+              <div className="grid gap-4 sm:grid-cols-2">
+                <Field label="Your name">
+                  <input
+                    required
+                    name="name"
+                    value={form.name}
+                    onChange={handleChange}
+                    maxLength={100}
+                    placeholder="Jane Smith"
+                    className="w-full rounded-md border border-border bg-background px-3 py-2 text-sm outline-none transition focus:border-[color:var(--brand-teal-dark)] focus:ring-2 focus:ring-[color:var(--brand-teal-dark)]/20"
+                  />
+                </Field>
+                <Field label="Company">
+                  <input
+                    name="company"
+                    value={form.company}
+                    onChange={handleChange}
+                    maxLength={120}
+                    placeholder="Acme Corp"
+                    className="w-full rounded-md border border-border bg-background px-3 py-2 text-sm outline-none transition focus:border-[color:var(--brand-teal-dark)] focus:ring-2 focus:ring-[color:var(--brand-teal-dark)]/20"
+                  />
+                </Field>
+              </div>
+              <Field label="Work email">
+                <input
+                  required
+                  type="email"
+                  name="email"
+                  value={form.email}
+                  onChange={handleChange}
+                  maxLength={255}
+                  placeholder="jane@acme.com"
+                  className="w-full rounded-md border border-border bg-background px-3 py-2 text-sm outline-none transition focus:border-[color:var(--brand-teal-dark)] focus:ring-2 focus:ring-[color:var(--brand-teal-dark)]/20"
+                />
+              </Field>
+              <Field label="Area of interest">
+                <select
+                  name="area"
+                  value={form.area}
+                  onChange={handleChange}
+                  className="w-full rounded-md border border-border bg-background px-3 py-2 text-sm outline-none transition focus:border-[color:var(--brand-teal-dark)] focus:ring-2 focus:ring-[color:var(--brand-teal-dark)]/20"
+                >
+                  <option value="">Select an area...</option>
+                  <option>AI &amp; Agent Strategy</option>
+                  <option>AI &amp; Agent Development</option>
+                  <option>End-to-End Architectures</option>
+                  <option>Security &amp; Governance</option>
+                  <option>Multiple / not sure yet</option>
+                </select>
+              </Field>
+              <Field label="Tell us about your team & goals">
+                <textarea
+                  name="message"
+                  value={form.message}
+                  onChange={handleChange}
+                  maxLength={2000}
+                  rows={4}
+                  placeholder="Team size, current stack, timeline, desired outcomes..."
+                  className="w-full resize-y rounded-md border border-border bg-background px-3 py-2 text-sm outline-none transition focus:border-[color:var(--brand-teal-dark)] focus:ring-2 focus:ring-[color:var(--brand-teal-dark)]/20"
+                />
+              </Field>
+              <button
+                type="submit"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-[color:var(--brand-teal-dark)] px-6 py-3 text-sm font-semibold text-white shadow-lg transition hover:brightness-110"
+              >
+                <Send className="h-4 w-4" />
+                Send enquiry
+              </button>
+            </form>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function Field({ label, children }: { label: string; children: React.ReactNode }) {
+  return (
+    <label className="block">
+      <span className="mb-1.5 block text-sm font-medium text-foreground">{label}</span>
+      {children}
+    </label>
+  );
+}
+
