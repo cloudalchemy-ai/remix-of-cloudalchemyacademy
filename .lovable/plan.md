@@ -1,50 +1,32 @@
-## Footer Redesign
+# Set up Resend email for "Book a training" form
 
-Replace the current single-row footer in `src/routes/index.tsx` with a structured multi-column layout. Keep the existing dark/teal brand theme — only the structure and content change.
+Replace the current `mailto:` submission in `ContactModal` with a real email send via Resend, using `contact@cloudalchemy.uk` (sender domain `contact.cloudalchemy.uk`).
 
-### Layout
+## Steps
 
-```text
-┌──────────────────────────────────────────────────────────────────────┐
-│  [LOGO]              Explore              Get in touch               │
-│  Enterprise          Services             ✉ contact@cloudalchemy.uk  │
-│  training in AI,     Courses              🌐 Worldwide · Remote &    │
-│  Agentic AI...       Delivery                  On-site               │
-│                      Contact              [in]  [▶]                  │
-├──────────────────────────────────────────────────────────────────────┤
-│  © 2026 Cloud Alchemy. All rights reserved.   Made with ♥ for learners worldwide │
-└──────────────────────────────────────────────────────────────────────┘
-```
+1. **Add Resend API key as a secret**
+   - Use the secrets tool to request `RESEND_API_KEY` from you.
 
-### Content per column
+2. **Create server function** `src/lib/send-training-enquiry.functions.ts`
+   - `createServerFn({ method: "POST" })` from `@tanstack/react-start`.
+   - Zod-validate input: `name`, `company`, `email`, `area`, `message` (trim + length limits, valid email).
+   - POST to `https://api.resend.com/emails` with `Authorization: Bearer ${process.env.RESEND_API_KEY}`.
+   - From: `Cloud Alchemy <noreply@contact.cloudalchemy.uk>`
+   - To: `contact@cloudalchemy.uk`
+   - Reply-To: submitter's email
+   - Subject: `Training enquiry — {company || name}`
+   - HTML + plain-text body containing all form fields.
+   - Return `{ ok: true }` or throw on failure.
 
-1. **Brand (col 1)**
-   - Existing logo image (`logoAsset`)
-   - Short tagline: "Enterprise training in AI, Agentic AI development, security, strategy, and end-to-end agentic architectures."
+3. **Update `ContactModal` in `src/routes/index.tsx`**
+   - Replace `mailto:` redirect in `handleSubmit` with `useServerFn(sendTrainingEnquiry)` call.
+   - Add `submitting` state, disable button while sending, show inline error on failure.
+   - Keep existing success view ("Thanks — …"), reworded to "Thanks — we'll be in touch shortly."
 
-2. **Explore (col 2)** — heading + vertical link list
-   - Services → `#pillars`
-   - Courses → `#courses`
-   - Delivery → `#delivery`
-   - Contact → opens contact modal
+4. **DNS / domain note (you handle outside code)**
+   - In Resend, verify `contact.cloudalchemy.uk` as a sending domain and add the SPF/DKIM/DMARC records they provide at your DNS registrar. Emails will only deliver once verification is green.
 
-3. **Get in touch (col 3)**
-   - Mail icon + `contact@cloudalchemy.uk` (mailto)
-   - Globe icon + "Worldwide · Remote & On-site"
-   - Social icons row: LinkedIn + YouTube (circular icon buttons, placeholder `#` URLs the user can fill in later)
-
-### Bottom bar
-- Thin divider above
-- Left: `© {year} Cloud Alchemy. All rights reserved.`
-- Right: `Made with ♥ for learners worldwide` (heart icon in brand teal)
-
-### Technical details
-
-- Single file change: `src/routes/index.tsx`, footer block only (~lines 531–546).
-- Use existing semantic tokens (`text-muted-foreground`, `border-border`, `bg-background`, `var(--brand-teal)`) — no hardcoded colors.
-- Layout: `grid grid-cols-1 md:grid-cols-3 gap-10` inside `max-w-6xl`; bottom bar in a separate flex row.
-- Contact link reuses the existing `openContact` handler (lift footer into `Index` scope where it already lives).
-- Lucide icons: reuse `Mail`, `Globe2`, `Heart` (new import), `Linkedin` (new), `Youtube` (new).
-- Social icon buttons: rounded-full, subtle background, hover state using brand teal.
-
-No new files, no dependency changes.
+## Notes
+- No Lovable Cloud needed; calling Resend directly from a server function is sufficient.
+- No new packages required (uses `fetch`).
+- Form validation done both client- and server-side via Zod.
