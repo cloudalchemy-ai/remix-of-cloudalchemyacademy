@@ -315,25 +315,33 @@ function Index() {
             Choose a single pillar or combine them into a multi-quarter program tailored to your organization.
           </p>
 
-          <div className="mt-12 grid gap-5 md:grid-cols-2">
-            {pillars.map((p) => (
+          <div className="mt-12 grid gap-8 lg:grid-cols-2">
+            {pillars.map((p, idx) => (
               <div
                 key={p.title}
-                className="group rounded-2xl border border-border bg-card p-7 shadow-[var(--shadow-soft)] transition hover:-translate-y-0.5 hover:shadow-[var(--shadow-card)]"
+                className="group relative flex overflow-hidden rounded-2xl border border-border/60 bg-card shadow-xl shadow-[oklch(0.2_0.08_250/0.08)] transition-all duration-300 hover:border-[color:var(--brand-teal)]/40 hover:shadow-[color:var(--brand-teal)]/10"
               >
-                <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-[color:var(--brand-teal)]/15 text-[color:var(--brand-teal-dark)]">
-                  <p.icon className="h-5 w-5" />
+                <div className="w-1.5 shrink-0 bg-[color:var(--brand-teal)]" />
+                <div className="flex-1 p-8">
+                  <div className="mb-6 flex items-start justify-between">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[color:var(--brand-teal)]/10 text-[color:var(--brand-teal-dark)]">
+                      <p.icon className="h-6 w-6" />
+                    </div>
+                    <span className="select-none text-4xl font-black tabular-nums text-border transition-colors group-hover:text-[color:var(--brand-teal)]/30">
+                      {String(idx + 1).padStart(2, "0")}
+                    </span>
+                  </div>
+                  <h3 className="mb-3 text-xl font-bold tracking-tight">{p.title}</h3>
+                  <p className="mb-6 text-sm leading-relaxed text-muted-foreground">{p.body}</p>
+                  <ul className="space-y-3">
+                    {p.bullets.map((b) => (
+                      <li key={b} className="flex items-center gap-3 text-sm text-foreground/85">
+                        <CheckCircle2 className="h-4 w-4 shrink-0 text-[color:var(--brand-teal)]" />
+                        <span>{b}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <h3 className="mt-5 text-xl font-semibold tracking-tight">{p.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{p.body}</p>
-                <ul className="mt-5 space-y-2">
-                  {p.bullets.map((b) => (
-                    <li key={b} className="flex items-start gap-2 text-sm">
-                      <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[color:var(--brand-teal)]" />
-                      <span>{b}</span>
-                    </li>
-                  ))}
-                </ul>
               </div>
             ))}
           </div>
