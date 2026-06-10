@@ -203,12 +203,12 @@ function Index() {
       <ContactModal open={contactOpen} onClose={() => setContactOpen(false)} />
       {/* NAV */}
       <header className="sticky top-0 z-50 w-full bg-[oklch(0.16_0.03_230)]">
-        <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-2">
-          <a href="#" aria-label="Cloud Alchemy Academy" className="flex items-center">
+        <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 md:py-4">
+          <a href="#" aria-label="Cloud Alchemy Academy" className="shrink-0">
             <img
               src={logoAsset}
               alt="Cloud Alchemy Academy"
-              className="h-12 w-12 object-contain drop-shadow-[0_4px_12px_oklch(0.18_0.08_240/0.5)] md:h-14 md:w-14"
+              className="h-16 w-16 object-contain drop-shadow-[0_4px_12px_oklch(0.18_0.08_240/0.5)] sm:h-20 sm:w-20 md:h-24 md:w-24"
             />
           </a>
           <div className="hidden items-center gap-8 text-sm text-white/80 md:flex">
@@ -231,10 +231,11 @@ function Index() {
           <button
             type="button"
             onClick={openContact}
-            className="inline-flex items-center gap-2 rounded-full bg-[color:var(--brand-teal)] px-4 py-2 text-sm font-medium text-[oklch(0.16_0.03_230)] shadow-sm transition hover:brightness-110"
+            className="inline-flex shrink-0 items-center gap-2 rounded-full bg-[color:var(--brand-teal)] px-3 py-2 text-xs font-medium text-[oklch(0.16_0.03_230)] shadow-sm transition hover:brightness-110 sm:px-4 sm:text-sm"
           >
             <Mail className="h-4 w-4" />
-            Book Training
+            <span className="hidden sm:inline">Book Training</span>
+            <span className="sm:hidden">Book</span>
           </button>
         </nav>
       </header>
