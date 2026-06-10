@@ -77,8 +77,8 @@ const pillars = [
     body: "Deep architecture engagements covering multi-agent design, orchestration, integration, and operations.",
     bullets: [
       "Multi-agent orchestration patterns",
-      "MCP, RAG, knowledge graphs, data",
-      "Production runtime, scaling, SRE",
+      "MCP, RAG, knowledge graphs, and data integration",
+      "Production runtime, scaling, and SRE for agents",
     ],
   },
   {
