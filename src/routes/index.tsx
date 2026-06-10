@@ -222,13 +222,14 @@ function Index() {
               Meet Your Team
             </a>
           </div>
-          <a
-            href="#contact"
+          <button
+            type="button"
+            onClick={openContact}
             className="inline-flex items-center gap-2 rounded-full bg-[color:var(--brand-teal)] px-4 py-2 text-sm font-medium text-[oklch(0.16_0.03_230)] shadow-sm transition hover:brightness-110"
           >
             <Mail className="h-4 w-4" />
             Book Training
-          </a>
+          </button>
         </nav>
       </header>
 
