@@ -1,13 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import heroBg from "@/assets/hero-bg.jpg";
-import logoAsset from "@/assets/cloud-alchemy-logo.png.asset.json";
-import courseCopilot from "@/assets/courses/copilot.jpeg.asset.json";
-import courseFoundry from "@/assets/courses/foundry.jpeg.asset.json";
-import courseMaf from "@/assets/courses/maf.jpeg.asset.json";
-import courseGenai from "@/assets/courses/genai.jpeg.asset.json";
-import courseMcp from "@/assets/courses/mcp.jpeg.asset.json";
-import courseOllama from "@/assets/courses/ollama.jpeg.asset.json";
+import logoAsset from "@/assets/cloud-alchemy-logo.png";
+import courseCopilot from "@/assets/courses/copilot.jpeg";
+import courseFoundry from "@/assets/courses/foundry.jpeg";
+import courseMaf from "@/assets/courses/maf.jpeg";
+import courseGenai from "@/assets/courses/genai.jpeg";
+import courseMcp from "@/assets/courses/mcp.jpeg";
+import courseOllama from "@/assets/courses/ollama.jpeg";
 import {
   GraduationCap,
   Shield,
@@ -199,10 +199,18 @@ function Index() {
             />
           </a>
           <div className="hidden items-center gap-8 text-sm text-white/80 md:flex">
-            <a href="#pillars" className="hover:text-white">Services</a>
-            <a href="#courses" className="hover:text-white">Courses</a>
-            <a href="#delivery" className="hover:text-white">Delivery</a>
-            <a href="#team" className="hover:text-white">Team</a>
+            <a href="#pillars" className="hover:text-white">
+              Services
+            </a>
+            <a href="#courses" className="hover:text-white">
+              Courses
+            </a>
+            <a href="#delivery" className="hover:text-white">
+              Delivery
+            </a>
+            <a href="#team" className="hover:text-white">
+              Team
+            </a>
           </div>
           <a
             href="#contact"
@@ -230,15 +238,13 @@ function Index() {
           </span>
 
           <h1 className="mt-8 text-5xl font-bold leading-[1.05] tracking-tight text-white md:text-7xl">
-            Train your teams to{" "}
-            <span className="text-[color:var(--brand-teal)]">build, secure, and ship</span>{" "}
+            Train your teams to <span className="text-[color:var(--brand-teal)]">build, secure, and ship</span>{" "}
             Enterprise AI Agents.
           </h1>
 
           <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-white/75 md:text-lg">
-            Cloud Alchemy Agentic AI Academy delivers hands-on training for corporations and
-            enterprises across agent development, security, strategy, and end-to-end agentic
-            architectures — remote, virtual, or on-site.
+            Cloud Alchemy Agentic AI Academy delivers hands-on training for corporations and enterprises across agent
+            development, security, strategy, and end-to-end agentic architectures — remote, virtual, or on-site.
           </p>
 
           <div className="mt-8 flex flex-wrap justify-center gap-3">
@@ -257,9 +263,15 @@ function Index() {
           </div>
 
           <div className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-white/70">
-            <span className="inline-flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[color:var(--brand-teal)]" /> Production-grade labs</span>
-            <span className="inline-flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[color:var(--brand-teal)]" /> Customized to your stack</span>
-            <span className="inline-flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[color:var(--brand-teal)]" /> Delivered worldwide</span>
+            <span className="inline-flex items-center gap-2">
+              <CheckCircle2 className="h-4 w-4 text-[color:var(--brand-teal)]" /> Production-grade labs
+            </span>
+            <span className="inline-flex items-center gap-2">
+              <CheckCircle2 className="h-4 w-4 text-[color:var(--brand-teal)]" /> Customized to your stack
+            </span>
+            <span className="inline-flex items-center gap-2">
+              <CheckCircle2 className="h-4 w-4 text-[color:var(--brand-teal)]" /> Delivered worldwide
+            </span>
           </div>
         </div>
 
@@ -300,8 +312,7 @@ function Index() {
             Four pillars covering the full Agentic AI lifecycle
           </h2>
           <p className="mt-4 max-w-2xl text-muted-foreground">
-            Choose a single pillar or combine them into a multi-quarter program tailored to your
-            organization.
+            Choose a single pillar or combine them into a multi-quarter program tailored to your organization.
           </p>
 
           <div className="mt-12 grid gap-5 md:grid-cols-2">
@@ -337,8 +348,7 @@ function Index() {
             Hands-on training across the Agentic AI stack
           </h2>
           <p className="mt-4 max-w-2xl text-muted-foreground">
-            Each course can be delivered as a private cohort for your team, customized to your stack
-            and use cases.
+            Each course can be delivered as a private cohort for your team, customized to your stack and use cases.
           </p>
 
           <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -393,16 +403,13 @@ function Index() {
             Train your way — anywhere in the world
           </h2>
           <p className="mt-4 max-w-2xl text-muted-foreground">
-            Pick the format that fits your team. Every mode is delivered by the same expert
-            instructors with the same hands-on labs.
+            Pick the format that fits your team. Every mode is delivered by the same expert instructors with the same
+            hands-on labs.
           </p>
 
           <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
             {delivery.map((d) => (
-              <div
-                key={d.title}
-                className="rounded-2xl border border-border bg-card p-6 shadow-[var(--shadow-soft)]"
-              >
+              <div key={d.title} className="rounded-2xl border border-border bg-card p-6 shadow-[var(--shadow-soft)]">
                 <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[color:var(--brand-teal)]/15 text-[color:var(--brand-teal-dark)]">
                   <d.icon className="h-5 w-5" />
                 </div>
@@ -432,22 +439,19 @@ function Index() {
             </h2>
             <div className="mt-6 space-y-4 text-white/75">
               <p>
-                We're Cloud Alchemy Academy — founded by Kshitij Joy, a Gen AI Architect with over
-                20 years building and securing enterprise systems for some of the world's most
-                regulated financial institutions, including Deutsche Bank, the Bank of England, and
-                JP Morgan.
+                We're Cloud Alchemy Academy — founded by Kshitij Joy, a Gen AI Architect with over 20 years building and
+                securing enterprise systems for some of the world's most regulated financial institutions, including
+                Deutsche Bank, the Bank of England, and JP Morgan.
               </p>
               <p>
-                We teach the agentic AI stack the way it actually has to work in production:
-                observable, secure, and compliant. Multi-agent orchestration, MCP, RAG, and real
-                deployment patterns — not toy demos, but the architecture that survives an audit
-                and scales under load.
+                We teach the agentic AI stack the way it actually has to work in production: observable, secure, and
+                compliant. Multi-agent orchestration, MCP, RAG, and real deployment patterns — not toy demos, but the
+                architecture that survives an audit and scales under load.
               </p>
               <p>
-                As a member of the invitation-only Udemy Instructor Partner Program, we've taught
-                these patterns to 60,000+ professionals across Udemy and Coursera. Credentials
-                include Oracle Certified Master, Oracle ACE Pro, and Microsoft certifications in
-                AI and Azure.
+                As a member of the invitation-only Udemy Instructor Partner Program, we've taught these patterns to
+                60,000+ professionals across Udemy and Coursera. Credentials include Oracle Certified Master, Oracle ACE
+                Pro, and Microsoft certifications in AI and Azure.
               </p>
             </div>
           </div>
@@ -458,10 +462,7 @@ function Index() {
               { icon: Sparkles, k: "Mission", l: "Enterprise-grade AI for all", s: "Accessible worldwide" },
               { icon: Globe, k: "6 continents", l: "Global reach", s: "Students everywhere" },
             ].map((s) => (
-              <div
-                key={s.l}
-                className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur"
-              >
+              <div key={s.l} className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur">
                 <s.icon className="h-5 w-5 text-[color:var(--brand-teal)]" />
                 <div className="mt-4 text-2xl font-bold tracking-tight">{s.k}</div>
                 <div className="mt-1 text-sm font-medium text-white/90">{s.l}</div>
@@ -480,8 +481,7 @@ function Index() {
             Ready to enable your team for the Agentic era?
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
-            Tell us about your team, your stack, and your timeline. We'll design a program that
-            fits.
+            Tell us about your team, your stack, and your timeline. We'll design a program that fits.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <a
@@ -507,9 +507,15 @@ function Index() {
             <span>© {new Date().getFullYear()} Cloud Alchemy Academy</span>
           </div>
           <div className="flex gap-6">
-            <a href="#pillars" className="hover:text-foreground">Services</a>
-            <a href="#courses" className="hover:text-foreground">Courses</a>
-            <a href="#contact" className="hover:text-foreground">Contact</a>
+            <a href="#pillars" className="hover:text-foreground">
+              Services
+            </a>
+            <a href="#courses" className="hover:text-foreground">
+              Courses
+            </a>
+            <a href="#contact" className="hover:text-foreground">
+              Contact
+            </a>
           </div>
         </div>
       </footer>
