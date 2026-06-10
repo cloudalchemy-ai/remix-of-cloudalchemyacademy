@@ -29,6 +29,7 @@ import {
   Globe2,
   Clock,
 } from "lucide-react";
+import { GlobalReachMap } from "@/components/GlobalReachMap";
 
 export const Route = createFileRoute("/")({
   head: () => ({
