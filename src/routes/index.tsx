@@ -215,7 +215,14 @@ function Index() {
     <div className="min-h-screen bg-background text-foreground">
       <ContactModal open={contactOpen} onClose={() => setContactOpen(false)} />
       {/* NAV */}
-      <header className="sticky top-0 z-50 w-full bg-[oklch(0.16_0.03_230)]">
+      <header
+        className="sticky top-0 z-50 w-full"
+        style={{
+          backgroundImage: `var(--hero-overlay), url(${heroBg})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center top",
+        }}
+      >
         <nav className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:px-6 md:py-4">
           <a href="#" aria-label="Cloud Alchemy Academy" className="shrink-0">
             <img
@@ -252,7 +259,7 @@ function Index() {
           </div>
         </nav>
         {mobileOpen && (
-          <div className="border-t border-white/10 bg-[oklch(0.16_0.03_230)] md:hidden">
+          <div className="border-t border-white/10 bg-[oklch(0.12_0.05_250)] md:hidden">
             <div className="mx-auto flex max-w-7xl flex-col px-4 py-2 sm:px-6">
               {NAV_LINKS.map((l) => (
                 <a
