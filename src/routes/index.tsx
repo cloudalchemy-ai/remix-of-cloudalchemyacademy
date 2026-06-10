@@ -209,7 +209,7 @@ function Index() {
               Delivery
             </a>
             <a href="#team" className="hover:text-white">
-              Team
+              Meet Your Team
             </a>
           </div>
           <a
