@@ -1,5 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
+import { useServerFn } from "@tanstack/react-start";
+import { sendTrainingEnquiry } from "@/lib/send-training-enquiry.functions";
 import heroBg from "@/assets/hero-bg.jpg";
 import logoAsset from "@/assets/cloud-alchemy-logo.png";
 import courseCopilot from "@/assets/courses/copilot.jpeg";
@@ -709,6 +711,9 @@ function AnimatedCounter({
 
 function ContactModal({ open, onClose }: { open: boolean; onClose: () => void }) {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const sendEnquiry = useServerFn(sendTrainingEnquiry);
   const [form, setForm] = useState({
     name: "",
     company: "",
@@ -737,14 +742,24 @@ function ContactModal({ open, onClose }: { open: boolean; onClose: () => void })
     setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const subject = encodeURIComponent(`Training enquiry — ${form.company || form.name}`);
-    const body = encodeURIComponent(
-      `Name: ${form.name}\nCompany: ${form.company}\nEmail: ${form.email}\nArea of interest: ${form.area}\n\n${form.message}`,
-    );
-    window.location.href = `mailto:contact@cloudalchemy.uk?subject=${subject}&body=${body}`;
-    setSubmitted(true);
+    if (submitting) return;
+    setError(null);
+    setSubmitting(true);
+    try {
+      await sendEnquiry({ data: form });
+      setSubmitted(true);
+    } catch (err) {
+      console.error(err);
+      setError(
+        err instanceof Error
+          ? err.message
+          : "Something went wrong. Please email contact@cloudalchemy.uk.",
+      );
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -797,9 +812,9 @@ function ContactModal({ open, onClose }: { open: boolean; onClose: () => void })
           {submitted ? (
             <div className="flex h-full flex-col items-center justify-center text-center">
               <CheckCircle2 className="h-12 w-12 text-[color:var(--brand-teal-dark)]" />
-              <h3 className="mt-4 text-xl font-semibold">Thanks — your email client is open</h3>
+              <h3 className="mt-4 text-xl font-semibold">Thanks — we'll be in touch shortly</h3>
               <p className="mt-2 text-sm text-muted-foreground">
-                If nothing happened, email us directly at contact@cloudalchemy.uk.
+                Your enquiry was sent to our team. We typically reply within one business day.
               </p>
               <button
                 type="button"
@@ -873,12 +888,18 @@ function ContactModal({ open, onClose }: { open: boolean; onClose: () => void })
                   className="w-full resize-y rounded-md border border-border bg-background px-3 py-2 text-sm outline-none transition focus:border-[color:var(--brand-teal-dark)] focus:ring-2 focus:ring-[color:var(--brand-teal-dark)]/20"
                 />
               </Field>
+              {error && (
+                <p className="rounded-md border border-destructive/40 bg-destructive/10 px-3 py-2 text-sm text-destructive">
+                  {error}
+                </p>
+              )}
               <button
                 type="submit"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-[color:var(--brand-teal-dark)] px-6 py-3 text-sm font-semibold text-white shadow-lg transition hover:brightness-110"
+                disabled={submitting}
+                className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-[color:var(--brand-teal-dark)] px-6 py-3 text-sm font-semibold text-white shadow-lg transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-60"
               >
                 <Send className="h-4 w-4" />
-                Send enquiry
+                {submitting ? "Sending..." : "Send enquiry"}
               </button>
             </form>
           )}
